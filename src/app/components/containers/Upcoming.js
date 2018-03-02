@@ -4,8 +4,9 @@ import { thunks } from 'Logic/actions/thunks'
 import UpcomingView from 'Presentational/EventList'
 import { Status } from 'Config/constants'
 import { isEmpty } from 'Config/helper'
+var Spinner = require('react-spinkit');
 
-let component = <p>Loading...</p>
+let component = <Spinner name="pulse" />
 
 class Upcoming extends React.Component {
     componentWillMount() {
@@ -21,7 +22,7 @@ class Upcoming extends React.Component {
     }
 
     render() {
-        return component
+        return <div className='event-container'>{component}</div>
     }
 }
 

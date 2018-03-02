@@ -5,11 +5,11 @@ import { formatDate } from 'Config/helper'
 
 const EventGrid = ({ events }) => {
     return (
-        <div className='event-container'>
+        <React.Fragment>
             {events.map((event, index) => (
                 <EventGridItem event={event} index={index} key={"item-" + index} />
             ))}
-        </div>
+        </React.Fragment>
     )
 }
 
