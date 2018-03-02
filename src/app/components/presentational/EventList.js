@@ -7,7 +7,7 @@ const EventGrid = ({ events }) => {
     return (
         <div className='event-container'>
             {events.map((event, index) => (
-                <EventGridItem event={event} index={index} />
+                <EventGridItem event={event} index={index} key={"item-" + index} />
             ))}
         </div>
     )
@@ -16,26 +16,25 @@ const EventGrid = ({ events }) => {
 const EventGridItem = ({ event, index }) => (
     <div
         className={"grid-item "}
-        key={"item-" + event.id}
         style={gridItemArea(index)} >
         <div className="image"><img src={event.imageUrl} /></div>
         <div className="text">
             <div className="event-grid-title">{event.name}</div>
             <div className="event-grid-date">{formatDate(event.startDate)}</div>
             <div className="event-grid-hashtags">
-                <Hashtags hashtag={event.hashtag} />
+                <Hashtags hashtag={event.hashtag} index={index} />
             </div>
         </div>
     </div>
 )
 
-const Hashtags = ({ hashtag }) => (
-    <React.Fragment>
-        {hashtag.map(h =>
-            <Link to='/'>{"#" + h}</Link>
-        )}
-    </React.Fragment>
-)
+const Hashtags = ({ hashtag, index }) => {
+    try {
+        return <React.Fragment key={"h-" + index}> {hashtag.map(h => <Link to='/'>{"#" + h}</Link>)} </React.Fragment>
+    } catch (error) {
+        return <Link to='/'>{"#error"}</Link>
+    }
+}
 
 let lastRow = [1, 1, 1, 1]
 const gridItemArea = (index) => {
