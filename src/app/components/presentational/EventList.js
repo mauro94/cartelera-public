@@ -30,7 +30,7 @@ const EventGridItem = ({ event, index }) => (
 
 const Hashtags = ({ hashtag, index }) => {
     try {
-        return <React.Fragment key={"h-" + index}> {hashtag.map(h => <Link to='/'>{"#" + h}</Link>)} </React.Fragment>
+        return <React.Fragment> {hashtag.map(h => <Link to='/' key={"h-" + index + "-" + h}>{"#" + h}</Link>)} </React.Fragment>
     } catch (error) {
         return <Link to='/'>{"#error"}</Link>
     }
