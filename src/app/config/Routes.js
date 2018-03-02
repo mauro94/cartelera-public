@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import App from 'Containers/App';
+import Home from 'Presentational/Home';
 
 const Routes = () => (
     <Router>
-        <Route path="/:filter?" component={App} />
+        <Route path="/" component={Home} />
     </Router>
 )
 
