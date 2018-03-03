@@ -1,4 +1,5 @@
 @import 'themeColors';
+
 .event-grid-title {
     font-family: 'Barlow', sans-serif;
     font-weight: 500;
@@ -14,6 +15,8 @@
 }
 
 .event-grid-hashtags {
+    overflow: hidden;
+    text-overflow: ellipsis;
     a {
         margin-right: 5px;
         font-family: 'Barlow', sans-serif;
