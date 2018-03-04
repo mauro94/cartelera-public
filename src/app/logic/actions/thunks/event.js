@@ -6,7 +6,7 @@ import { history } from 'Config/helper'
 import { createAction } from 'Logic/actions'
 import { request } from 'Config/helper'
 
-export const upcoming = () => {
+export const all = () => {
     return (dispatch) => {
         dispatch(createAction(EventActions.Upcoming, null,
             null, Status.WaitingOnServer))

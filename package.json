@@ -22,12 +22,14 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.3",
+    "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "css-loader": "^0.28.9",
+    "file-loader": "^1.1.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",

@@ -13,11 +13,12 @@ const EventGrid = ({ events }) => {
     )
 }
 
-const EventGridItem = ({ event, index }) => (
-    <div
-        className={"grid-item "}
+const EventGridItem = ({ event, index }) => {
+    event.hashtag = ['code', 'hack', 'business']
+    return <div
+        className={"grid-item"}
         style={gridItemArea(index)} >
-        <div className="image"><img src={event.imageUrl} /></div>
+        <div className="image"><img src={event.photo} /></div>
         <div className="text">
             <div className="event-grid-title">{event.name}</div>
             <div className="event-grid-date">{formatDate(event.startDate)}</div>
@@ -26,7 +27,7 @@ const EventGridItem = ({ event, index }) => (
             </div>
         </div>
     </div>
-)
+}
 
 const Hashtags = ({ hashtag, index }) => {
     try {

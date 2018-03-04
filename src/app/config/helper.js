@@ -8,8 +8,10 @@ export function isEmpty(object) {
 }
 
 export const request = axios.create({
-    baseURL: 'https://5a8e3738b5a3130012909abb.mockapi.io/api',
-    timeout: 1000
+    baseURL: 'https://cartelera-api.herokuapp.com/',
+    headers: {
+        'Accept': 'application/vnd.cartelera-api.v1'
+    }
 })
 
 export const history = createBrowserHistory()

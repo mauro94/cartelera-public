@@ -1,10 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Home from 'Presentational/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from 'Presentational/Main'
 
 const Routes = () => (
     <Router>
-        <Route path="/" component={Home} />
+        <Switch>
+            <Route path="/" component={Home} />
+        </Switch>
     </Router>
 )
 

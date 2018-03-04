@@ -17,12 +17,17 @@ class Upcoming extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.loading && nextProps.ready) {
-            component = <UpcomingView {...nextProps} />
+            if (isEmpty(nextProps.events))
+                component = <div className='no-events'>No hay eventos en la base de datos</div>
+            else
+                component = <UpcomingView {...nextProps} />
         }
     }
 
     render() {
-        return <div className='event-container'>{component}</div>
+        return <div className={'event-container ' + (this.props.upcoming ? "upcoming" : "all")}>
+            {component}
+        </div>
     }
 }
 
@@ -37,7 +42,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         loadUpcomingEvents: () => {
-            dispatch(thunks.event.upcoming())
+            dispatch(thunks.event.all())
         }
     }
 }

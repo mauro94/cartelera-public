@@ -1,7 +1,18 @@
 @import 'themeColors';
-h1 {
+body {
   font-family: 'Barlow', sans-serif;
+}
+h1 {
   font-weight: 600;
   font-size: 36px;
   color: $themeColor-darkBlue;
+}
+button {
+  width: 100px;
+  background: $themeColor-lightBlue;
+  color: $themeColor-white;
+  border-radius: 7px;
+  height: 30px;
+  border: 0;
+  text-align: center;
 }
