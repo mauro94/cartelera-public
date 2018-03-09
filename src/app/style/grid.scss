@@ -60,18 +60,22 @@
 
 .grid-item {
   display: grid;
-  padding: 5px;
+  padding: 10px;
   -o-transition:.2s;
   -ms-transition:.2s;
   -moz-transition:.2s;
   -webkit-transition:.2s;
-  transition:.2s;
-  grid-template-rows: 1fr auto
+  transition: all 300ms ease-in-out;
+  grid-template-rows: 1fr auto;
+  border-radius: 15px;
 }
 
 .grid-item:hover {
   cursor: pointer;
-  background-color: $themeColor-light
+  background-color: $themeColor-light;
+  .grid-item-options {
+    opacity: 0.3;
+  }
 }
 
 .text {
@@ -81,9 +85,23 @@
 
 .image {
     overflow: hidden;
+    position: relative;
     img {
+        border-radius: 15px;
         height: 100%;
         width: 100%;
         object-fit: none;
     }
+    .grid-item-options {
+      border-radius: 15px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      background-color: #000000;
+  }
 }

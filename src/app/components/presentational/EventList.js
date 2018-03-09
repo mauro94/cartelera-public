@@ -18,7 +18,10 @@ const EventGridItem = ({ event, index }) => {
     return <div
         className={"grid-item"}
         style={gridItemArea(index)} >
-        <div className="image"><img src={event.photo} /></div>
+        <div className="image">
+            <img src={event.photo} />
+            <div className='grid-item-options'></div>
+        </div>
         <div className="text">
             <div className="event-grid-title">{event.name}</div>
             <div className="event-grid-date">{formatDate(event.startDate)}</div>
