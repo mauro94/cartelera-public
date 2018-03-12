@@ -8,7 +8,11 @@ const EventsPage = () => (
     <React.Fragment>
         <h1>Próximos eventos</h1>
         <Events upcoming={true} />
-        <button className='view-more-events' onClick={() => (history.push('/eventos'))}>ver más</button>
+        <button
+            className='view-more-events'
+            onClick={() => (history.replace('/eventos'))}>
+            ver más
+        </button>
     </React.Fragment>
 )
 

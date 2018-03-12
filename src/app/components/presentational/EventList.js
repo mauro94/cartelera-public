@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { formatDate } from 'Config/helper'
 
+let lastRow = []
+
 const EventGrid = ({ events }) => {
+    lastRow = [1, 1, 1, 1]
     return (
         <React.Fragment>
             {events.map((event, index) => (
@@ -40,7 +43,6 @@ const Hashtags = ({ hashtag, index }) => {
     }
 }
 
-let lastRow = [1, 1, 1, 1]
 const gridItemArea = (index) => {
     let prevRow = lastRow[index % 4]
     let newRow = prevRow + Math.ceil(Math.random() * 10 + 3)
