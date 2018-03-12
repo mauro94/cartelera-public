@@ -4,9 +4,13 @@ import PropTypes from 'prop-types'
 import { formatDate } from 'Config/helper'
 
 let lastRow = []
+let max
+let min
 
 const EventGrid = ({ events }) => {
     lastRow = [1, 1, 1, 1]
+    max = 12
+    min = 6
     return (
         <React.Fragment>
             {events.map((event, index) => (
@@ -45,14 +49,21 @@ const Hashtags = ({ hashtag, index }) => {
 
 const gridItemArea = (index) => {
     let prevRow = lastRow[index % 4]
-    let newRow = prevRow + Math.ceil(Math.random() * 10 + 3)
+    let newRow = (Math.ceil(Math.random() * (max - min)) + min)
     let column = (index % 4) + 1
     lastRow[index % 4] = newRow
-
+    if (column == 4) {
+        max = Math.max(...lastRow) + 12
+        min = Math.max(...lastRow) + 6
+    }
     return {
         gridRow: prevRow + " / " + newRow,
         gridColumn: column + " / " + column
     }
+}
+
+const lastGridItemArea = (index) => {
+
 }
 
 EventGrid.propTypes = {
