@@ -1,6 +1,6 @@
 import React from 'react'
 import 'Style/main.scss'
-import 'Style/grid.scss'
+import 'Style/eventGrid.scss'
 import Events from 'Containers/Upcoming'
 import { history } from 'Config/helper'
 
@@ -10,7 +10,7 @@ const EventsPage = () => (
         <Events upcoming={true} />
         <button
             className='view-more-events'
-            onClick={() => (history.replace('/eventos'))}>
+            onClick={() => { window.scrollTo(0, 0)(history.replace('/eventos')) }}>
             ver más
         </button>
     </React.Fragment>

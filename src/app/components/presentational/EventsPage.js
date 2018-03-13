@@ -1,6 +1,6 @@
 import React from 'react'
 import 'Style/main.scss'
-import 'Style/grid.scss'
+import 'Style/eventGrid.scss'
 import Events from 'Containers/Upcoming'
 
 const EventsPage = () => (
