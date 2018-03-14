@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Home from 'Presentational/Main'
+import Main from 'Presentational/Main'
 
 const Routes = () => (
     <Router>
         <Switch>
-            <Route path="/" component={Home} />
+            <Route path="/" component={Main} />
         </Switch>
     </Router>
 )

@@ -24,3 +24,7 @@ export const formatDate = (eventDate) => {
     let d = new Date(eventDate)
     return d.getDate() + " de " + month[d.getMonth()]
 }
+
+export const randomInt = (from, to) => {
+    return (Math.ceil(Math.random() * (to - from)) + from)
+}

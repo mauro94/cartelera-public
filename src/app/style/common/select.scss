@@ -1,0 +1,29 @@
+@import 'colors';
+
+.select {
+    display: inline-flex;
+    padding: 4px;
+    justify-content: center;
+    background-color: $light;
+    border-radius: 5px;
+    cursor: default;
+    .down-arrow {
+      svg {
+        height: 10px;
+        width: 10px;
+        margin-left: 10px;
+        stroke: $black;
+        stroke-width: 15;
+      }
+    }
+  }
+  
+  .select:hover {
+    background-color: $light-blue;
+    color: $light;
+    .down-arrow {
+      svg {
+        stroke: $light;
+      }
+    }
+  }

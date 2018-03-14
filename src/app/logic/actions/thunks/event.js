@@ -2,9 +2,9 @@ import {
     EventActions,
     Status
 } from 'Config/constants'
-import { history } from 'Config/helper'
+import { history, request } from 'Config/helper'
 import { createAction } from 'Logic/actions'
-import { request } from 'Config/helper'
+import { events } from 'Config/test'
 
 export const all = () => {
     return (dispatch) => {
@@ -13,7 +13,7 @@ export const all = () => {
         request.get('/events')
             .then(response => {
                 dispatch(
-                    createAction(EventActions.Upcoming, response.data, null,
+                    createAction(EventActions.Upcoming, events, null,
                         Status.Ready))
             })
             .catch((error) => {
