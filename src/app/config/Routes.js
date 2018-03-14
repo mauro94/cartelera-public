@@ -1,10 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import App from 'Containers/App';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Main from 'Presentational/Main'
 
 const Routes = () => (
     <Router>
-        <Route path="/:filter?" component={App} />
+        <Switch>
+            <Route path="/" component={Main} />
+        </Switch>
     </Router>
 )
 
