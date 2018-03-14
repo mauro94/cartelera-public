@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from 'Images/logo.svg'
-import { DownArrow } from 'Images/downArrow'
+import { campus } from 'Config/test'
+import { Dropdown } from 'Presentational/Dropdown'
 
 const Header = () => (
     <div className='header'>
@@ -10,11 +11,7 @@ const Header = () => (
         <div className='campus'>
             <span className='label'>Campus</span>
             <span>
-                <div className='select'><div>MTY</div>
-                    <div className='down-arrow'>
-                        <DownArrow />
-                    </div>
-                </div>
+                <Dropdown data={campus} />
             </span>
         </div>
     </div>

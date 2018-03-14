@@ -108,3 +108,9 @@ export var events = [
         "cancelled": false
     }
 ]
+
+export var campus = {
+    'MTY': 'MTY',
+    'QRO': 'QRO',
+    'CDMX': 'CDMX'
+}
