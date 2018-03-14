@@ -1,7 +1,7 @@
 import React from 'react'
 import 'Style/main.scss'
-import 'Style/eventGrid.scss'
-import Events from 'Containers/Upcoming'
+import 'Style/events/grid/container.scss'
+import Events from 'Containers/Events'
 
 const EventsPage = () => (
     <React.Fragment>

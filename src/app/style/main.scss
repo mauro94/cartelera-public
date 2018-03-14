@@ -1,22 +1,16 @@
-@import 'themeColors';
+@import 'common/colors';
+@import 'common/select';
+@import 'common/button';
+
 body {
   font-family: 'Barlow', sans-serif;
+  color: $black;
 }
 
 h1 {
   font-weight: 600;
   font-size: 36px;
-  color: $themeColor-darkBlue;
-}
-
-button {
-  width: 100px;
-  background: $themeColor-lightBlue;
-  color: $themeColor-white;
-  border-radius: 7px;
-  height: 30px;
-  border: 0;
-  text-align: center;
+  color: $dark-blue;
 }
 
 .container {
@@ -47,7 +41,12 @@ button {
       grid-row: 1;
       grid-column: 3;
       span {
-        margin: 2px;
+        &.label {
+          margin: 4px;
+        }
+        .select {
+          width: 60px;
+        }
       }
     }
   }

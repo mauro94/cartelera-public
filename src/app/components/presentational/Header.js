@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from 'Images/logo.svg'
+import { DownArrow } from 'Images/downArrow'
 
 const Header = () => (
     <div className='header'>
@@ -7,9 +8,13 @@ const Header = () => (
             <img src={logo} />
         </div>
         <div className='campus'>
-            <span>Campus</span>
+            <span className='label'>Campus</span>
             <span>
-                <select><option>MTY</option></select>
+                <div className='select'><div>MTY</div>
+                    <div className='down-arrow'>
+                        <DownArrow />
+                    </div>
+                </div>
             </span>
         </div>
     </div>
