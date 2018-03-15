@@ -4,10 +4,10 @@ import 'Style/events/grid/container.scss'
 import Events from 'Containers/Events'
 
 const EventsPage = () => (
-    <React.Fragment>
+    <div className='page-container'>
         <h1>Todos los eventos</h1>
         <Events upcoming={false} />
-    </React.Fragment>
+    </div>
 )
 
 export default EventsPage

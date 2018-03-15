@@ -11,7 +11,8 @@ module.exports = {
     ],
     output: {
         path: BUILD_DIR,
-        filename: 'bundle.js'
+        publicPath: "/",
+        filename: 'bundle.js',
     },
 
     devtool: "source-map-inline",

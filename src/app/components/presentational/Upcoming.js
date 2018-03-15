@@ -5,7 +5,7 @@ import Events from 'Containers/Events'
 import { history } from 'Config/helper'
 
 const EventsPage = () => (
-    <React.Fragment>
+    <div className='page-container'>
         <h1>Próximos eventos</h1>
         <Events upcoming={true} />
         <button
@@ -16,7 +16,7 @@ const EventsPage = () => (
             }}>
             ver más
         </button>
-    </React.Fragment>
+    </div>
 )
 
 export default EventsPage
