@@ -8,17 +8,35 @@ import { events } from 'Config/test'
 
 export const all = () => {
     return (dispatch) => {
-        dispatch(createAction(EventActions.Upcoming, null,
+        dispatch(createAction(EventActions.All, null,
             null, Status.WaitingOnServer))
         request.get('/events')
             .then(response => {
                 dispatch(
-                    createAction(EventActions.Upcoming, events, null,
+                    createAction(EventActions.All, events, null,
                         Status.Ready))
             })
             .catch((error) => {
                 dispatch(
-                    createAction(EventActions.Upcoming, null, error.response.data,
+                    createAction(EventActions.All, null, error.response.data,
+                        Status.Failed))
+            })
+    }
+}
+
+export const get = (id) => {
+    return (dispatch) => {
+        dispatch(createAction(EventActions.Current, null,
+            null, Status.WaitingOnServer))
+        request.get('/events/' + id)
+            .then(response => {
+                dispatch(
+                    createAction(EventActions.Current, response.data, null,
+                        Status.Ready))
+            })
+            .catch((error) => {
+                dispatch(
+                    createAction(EventActions.Current, null, error.response.data,
                         Status.Failed))
             })
     }

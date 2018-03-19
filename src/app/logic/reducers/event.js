@@ -6,18 +6,25 @@ import {
 var defaultState = {
     all: [],
     status: Status.Ready,
-    error: {}
+    error: {},
+    current: {}
 }
 
 function event(state = defaultState, action) {
-    // For now, don't handle any actions
-    // and just return the state given to us.
     switch (action.type) {
-        case EventActions.Upcoming:
+        case EventActions.All:
             return {
+                ...state,
                 all: action.object,
                 status: action.status,
-                error: action.error
+                error: action.error,
+            }
+        case EventActions.Current:
+            return {
+                ...state,
+                current: action.object,
+                status: action.status,
+                error: action.error,
             }
     }
     return state

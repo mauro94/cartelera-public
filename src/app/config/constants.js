@@ -1,5 +1,6 @@
 export const EventActions = Object.freeze({
-    Upcoming: 'UPCOMING'
+    All: 'ALL',
+    Current: 'CURRENT'
 })
 
 export const Status = Object.freeze({
