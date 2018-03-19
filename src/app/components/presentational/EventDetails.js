@@ -11,7 +11,7 @@ import { history, pageDomain } from 'Config/helper'
 
 const EventDetails = ({ event }) => {
     return (
-        <div className='page-container'>
+        <React.Fragment>
             <h1>
                 {event.name}
             </h1>
@@ -38,7 +38,7 @@ const EventDetails = ({ event }) => {
                         round />
                 </WhatsappShareButton>
             </div>
-        </div>
+        </React.Fragment>
     )
 }
 

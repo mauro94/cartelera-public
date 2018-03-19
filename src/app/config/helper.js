@@ -29,4 +29,4 @@ export const randomInt = (from, to) => {
     return (Math.ceil(Math.random() * (to - from)) + from)
 }
 
-export const pageDomain = 'www.example.com/'
+export const pageDomain = 'www.example.com'

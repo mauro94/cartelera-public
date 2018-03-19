@@ -28,8 +28,7 @@ class Event extends React.Component {
 
     render() {
         return (
-            <div className={'event-container ' +
-                (this.props.upcoming ? "upcoming" : "all")}>
+            <div className='page-container'>
                 {component}
             </div>)
     }
