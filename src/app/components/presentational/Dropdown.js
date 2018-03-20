@@ -33,17 +33,15 @@ export class Dropdown extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {
-                    <div className={
-                        'select' + (this.state.showOptions ? ' focused' : '')
-                    }
-                        onClick={() => this.toggleOptions()}>
-                        <div>{this.state.selected}</div>
-                        <div className='down-arrow'>
-                            <DownArrow />
-                        </div>
-                    </div>
+                <div className={
+                    'select' + (this.state.showOptions ? ' focused' : '')
                 }
+                    onClick={() => this.toggleOptions()}>
+                    <div>{this.state.selected}</div>
+                    <div className='down-arrow'>
+                        <DownArrow />
+                    </div>
+                </div>
                 {this.state.showOptions && <div className='hidden-select'>
                     {Object.keys(this.state.options).map((key) =>
                         <div key={key} onClick={() => this.select(key)}>

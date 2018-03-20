@@ -4,7 +4,6 @@ import {
 } from 'Config/constants'
 import { history, request } from 'Config/helper'
 import { createAction } from 'Logic/actions'
-import { events } from 'Config/test'
 
 export const all = () => {
     return (dispatch) => {
@@ -13,7 +12,7 @@ export const all = () => {
         request.get('/events')
             .then(response => {
                 dispatch(
-                    createAction(EventActions.All, events, null,
+                    createAction(EventActions.All, response.data, null,
                         Status.Ready))
             })
             .catch((error) => {
