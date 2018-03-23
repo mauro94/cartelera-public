@@ -2,8 +2,9 @@ import {
     EventActions,
     Status
 } from 'Config/constants'
-import { history, request } from 'Config/helper'
+import { request } from 'Config/helper'
 import { createAction } from 'Logic/actions'
+import { history } from 'Config/router'
 
 export const all = () => {
     return (dispatch) => {

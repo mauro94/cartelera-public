@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from 'Images/logo.svg'
 import { campus } from 'Config/test'
-import { Dropdown } from 'Presentational/Dropdown'
+import { Dropdown } from 'Presentational/elements/Dropdown'
 
 const Header = () => (
     <div className='header'>

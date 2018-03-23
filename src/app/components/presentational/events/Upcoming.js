@@ -1,13 +1,13 @@
 import React from 'react'
 import 'Style/main.scss'
 import 'Style/events/grid/container.scss'
-import Events from 'Containers/Events'
-import { history } from 'Config/helper'
+import EventList from 'Containers/events/List'
+import { history } from 'Config/router'
 
-const EventsPage = () => (
+const Upcoming = () => (
     <div className='page-container'>
         <h1>Próximos eventos</h1>
-        <Events upcoming={true} />
+        <EventList upcoming={true} />
         <button
             className='view-more-events'
             onClick={() => {
@@ -19,4 +19,4 @@ const EventsPage = () => (
     </div>
 )
 
-export default EventsPage
+export default Upcoming

@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { thunks } from 'Logic/actions/thunks'
-import EventsView from 'Presentational/EventList'
+import EventList from 'Presentational/events/List'
 import { Status } from 'Config/constants'
 import { isEmpty } from 'Config/helper'
 var Spinner = require('react-spinkit');
 
 let component = <Spinner name="pulse" />
 
-class Events extends React.Component {
+class List extends React.Component {
     componentWillMount() {
         if (!this.props.loading && (isEmpty(this.props.events))) {
             this.props.loadEvents()
@@ -20,7 +20,7 @@ class Events extends React.Component {
             if (isEmpty(nextProps.events))
                 component = <div className='no-events'>No hay eventos en la base de datos</div>
             else
-                component = <EventsView {...nextProps} />
+                component = <EventList {...nextProps} />
         }
     }
 
@@ -47,4 +47,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Events)
+export default connect(mapStateToProps, mapDispatchToProps)(List)

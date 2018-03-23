@@ -1,16 +1,16 @@
-
-import { connect } from 'react-redux'
 import React from 'react'
-import EventDetails from 'Presentational/EventDetails'
+import { connect } from 'react-redux'
 import { thunks } from 'Logic/actions/thunks'
+import { createAction } from 'Logic/actions'
 import { Status, EventActions } from 'Config/constants'
 import { isEmpty } from 'Config/helper'
-import { createAction } from 'Logic/actions'
+import ShowEvent from 'Presentational/events/Show'
+
 var Spinner = require('react-spinkit');
 
 let component = <Spinner name="pulse" />
 
-class Event extends React.Component {
+class Show extends React.Component {
     componentDidMount() {
         if (!this.props.loading && isEmpty(this.props.event)) {
             this.props.loadEvent(this.props.id)
@@ -23,7 +23,7 @@ class Event extends React.Component {
                 component = <div className='no-events'>
                     No existe el evento en la base de datos</div>
             else
-                component = <EventDetails event={nextProps.event} />
+                component = <ShowEvent event={nextProps.event} />
         }
     }
 
@@ -40,7 +40,7 @@ class Event extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         event: state.event.current,
         loading: state.event.status == Status.WaitingOnServer,
@@ -62,4 +62,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Event)
+export default connect(mapStateToProps, mapDispatchToProps)(Show)

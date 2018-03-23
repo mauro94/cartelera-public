@@ -4,14 +4,14 @@ import { formatDate, randomInt } from 'Config/helper'
 
 let lastRow = [], maxRowHeight, minRowHeight
 
-const EventGrid = ({ events }) => {
+const EventList = ({ events }) => {
     lastRow = [1, 1, 1, 1]
     maxRowHeight = 12
     minRowHeight = 6
     return (
         <React.Fragment>
             {events.map((event, index) => (
-                <EventGridItem
+                <EventListItem
                     event={event}
                     index={index}
                     key={"item-" + index} />
@@ -20,7 +20,7 @@ const EventGrid = ({ events }) => {
     )
 }
 
-const EventGridItem = ({ event, index }) => {
+const EventListItem = ({ event, index }) => {
     event.hashtag = ['code', 'hack', 'business']
     return (
         <Link
@@ -72,4 +72,4 @@ const gridItemArea = (index) => {
     }
 }
 
-export default EventGrid
+export default EventList

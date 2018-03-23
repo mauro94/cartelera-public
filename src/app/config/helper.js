@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createBrowserHistory } from 'history'
 import axios from 'axios'
 
 export function isEmpty(object) {
@@ -13,8 +12,6 @@ export const request = axios.create({
         'Accept': 'application/vnd.cartelera-api.v1'
     }
 })
-
-export const history = createBrowserHistory()
 
 const month = ["enero", "febrero", "marzo", "abril", "mayo",
     "junio", "julio", "agosto", "septiembre", "octubre",

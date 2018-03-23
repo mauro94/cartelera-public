@@ -1,8 +1,9 @@
 import React from 'react'
-import Share from 'Presentational/Share'
-import { history, pageDomain, pageTitle } from 'Config/helper'
+import Share from 'Presentational/elements/Share'
+import { pageDomain, pageTitle } from 'Config/helper'
+import { history } from 'Config/router'
 
-const EventDetails = ({ event }) => {
+const Show = ({ event }) => {
     let shareUrl = pageDomain + history.location.pathname
     let shareMsg = event.name + ' - ' + pageTitle
     return (
@@ -15,4 +16,4 @@ const EventDetails = ({ event }) => {
     )
 }
 
-export default EventDetails
+export default Show
