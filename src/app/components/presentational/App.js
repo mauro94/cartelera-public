@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route, Switch, Router, history, withRouter } from 'Config/router'
 import { Header } from 'Presentational/elements'
-import UpcomingEvents from 'Presentational/events/Upcoming'
-import AllEvents from 'Presentational/events/All'
+import { UpcomingEvents, AllEvents } from 'Presentational/events'
 import ShowEvent from 'Containers/events/Show'
 import 'Style/main.scss'
 
