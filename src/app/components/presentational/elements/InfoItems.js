@@ -10,7 +10,7 @@ export const IconInfoCollection = (props) => (
             props.keys.map((key, index) => (
                 <React.Fragment key={`icon-${index}`}>
                     <IconedInfoItem
-                        itemKey={key}
+                        keys={[key]}
                         item={props.item}
                         text={props.item[key]} />
                 </React.Fragment>
@@ -21,6 +21,18 @@ export const IconInfoCollection = (props) => (
 
 export const InfoItem = (props) => {
     if (!isEmpty(props.item[props.itemKey])) {
+        return (
+            <div className='info-item'>
+                <div className='label'>
+                    {Labels[props.itemKey]}
+                </div>
+                <div className='children'>
+                    {getChildren(props)}
+                </div>
+            </div>
+        )
+    }
+    if (props.dontValidate) {
         return (
             <div className='info-item'>
                 <div className='label'>

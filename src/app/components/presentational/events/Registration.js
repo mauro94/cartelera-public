@@ -2,7 +2,7 @@ import React from 'react'
 import { daysToDeadline, formatTimeToRegister } from 'Config/helper'
 import { Button, ModalAlert, ModalConfirmation, TextField } from 'Presentational/elements'
 
-const RegistrationSection = ({ event, error }) => (
+const RegistrationSection = ({ event, error, register }) => (
     <div className='register'>
         <div className='cost'>
             {!event.cost || event.cost == 0 ?
