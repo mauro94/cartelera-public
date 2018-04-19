@@ -1,8 +1,10 @@
+import axios from 'axios'
+import jsonp from 'jsonp'
 import {
     EventActions,
     Status
 } from 'Config/constants'
-import { request } from 'Config/helper'
+import { request, weatherRequest, weatherKey } from 'Config/helper'
 import { createAction } from 'Logic/actions'
 import { history } from 'Config/router'
 
@@ -26,17 +28,17 @@ export const all = () => {
 
 export const get = (id) => {
     return (dispatch) => {
-        dispatch(createAction(EventActions.Current, null,
+        dispatch(createAction(EventActions.Show, null,
             null, Status.WaitingOnServer))
         request.get('/events/' + id)
             .then(response => {
                 dispatch(
-                    createAction(EventActions.Current, response.data, null,
+                    createAction(EventActions.Show, response.data, null,
                         Status.Ready))
             })
-            .catch((error) => {
+            .catch(error => {
                 dispatch(
-                    createAction(EventActions.Current, null, error.response.data,
+                    createAction(EventActions.Show, null, error.response.data,
                         Status.Failed))
             })
     }

@@ -5,10 +5,9 @@
 
 .event-container {
   display: grid;
-  grid-row: 2;
   grid-column-gap: 10px;
   grid-row-gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 30px;
   &.upcoming {
     max-height: 900px;
@@ -22,7 +21,6 @@
 }
 
 .view-more-events {
-  grid-row: 3;
   align-self: center;
   justify-self: center;
   margin: 30px;

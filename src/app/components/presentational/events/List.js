@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { formatDate, randomInt } from 'Config/helper'
+import { eventDates, randomInt } from 'Config/helper'
+import { Hashtags } from 'Presentational/elements'
+import load from 'Containers/Load'
 
 let lastRow = [], maxRowHeight, minRowHeight
 
@@ -35,25 +37,13 @@ const EventListItem = ({ event, index }) => {
             </div>
             <div className="text">
                 <div className="event-grid-title">{event.name}</div>
-                <div className="event-grid-date">{formatDate(event.startDate)}</div>
+                <div className="event-grid-date">{eventDates(event.startDatetime, event.endDatetime)}</div>
                 <div className="event-grid-hashtags">
-                    {event.hashtag &&
-                        <Hashtags hashtag={event.hashtag} index={index} />}
+                    {event.tags &&
+                        <Hashtags hashtag={event.tags} index={index} />}
                 </div>
             </div>
         </Link>
-    )
-}
-
-const Hashtags = ({ hashtag, index }) => {
-    return (
-        <React.Fragment>
-            {hashtag.map(h =>
-                <Link to='/' key={"h-" + index + "-" + h}>
-                    {"#" + h}
-                </Link>
-            )}
-        </React.Fragment>
     )
 }
 
@@ -67,9 +57,8 @@ const gridItemArea = (index) => {
         minRowHeight = maxRowHeight - 6
     }
     return {
-        gridRow: prevRow + " / " + newRow,
-        gridColumn: column + " / " + column
+        gridRowEnd: `span ${newRow - prevRow}`
     }
 }
 
-export default EventList
+export default load('events', EventList)

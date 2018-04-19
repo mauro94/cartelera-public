@@ -1,0 +1,39 @@
+@import '../common/colors';
+
+.photo-modal {
+    .modal-confirmation {
+        height: 80vh;
+        .enlarged-image {
+            height: 100%;
+            .close {
+                display:flex;
+                align-items:center;
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 5%;
+                background-color: $black;
+                padding: 10px;
+                border-radius: 60px;
+                height: 30px;
+                width: 30px;
+                svg {
+                    color: $white;
+                }
+                &:hover {
+                    opacity: 1;
+                    cursor: pointer;
+                }
+              }
+            .image {
+                img {
+                    display: block;
+                    height: 100%;
+                    width: auto;
+                    object-fit: initial;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@import 'colors';
+
+.input-container{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    text-align: left;
+    
+    .separator {
+      height:3px;
+      width: 100%;
+      background: $light-blue;
+      display: block;
+      transform: scaleX(0) translateY(-2px);
+      transform-origin: 50%;
+      opacity: 0;
+      transition: all .25s linear;
+    }
+  
+    .separator-warning {
+      height:3px;
+      width: 100%;
+      background: $red;
+      display: block;
+      transform: scaleX(0) translateY(-2px);
+      transform-origin: 50%;
+      opacity: 0;
+      transition: all .25s linear;
+    }
+    
+    
+    :focus {
+      outline-color: transparent;
+      outline-style: none;
+    }
+  
+    label{
+      display: block;
+      text-align: left;
+      color: $black;
+      font-size: .875em;
+    }
+    
+     .text-input{
+       overflow: hidden;  
+       margin-bottom: .875em;
+     }
+      
+     input[type="text"]{
+       width: 100%;
+       padding: 0.7em;
+       padding-left: 0;
+       background: none;
+       color: $black;
+       font-size: 1em;
+       font-weight: 500;
+       border: none;
+       border-bottom: 1px solid $black;
+  
+       /*Some sibling magic happens */
+       &:focus + .separator {
+         transform: scaleX(1) translateY(-2px);   
+         opacity: 1;
+       }
+  
+       /*Some sibling magic happens */
+       &:focus + .separator-warning {
+         transform: scaleX(1) translateY(-2px);   
+         opacity: 1;
+       } 
+     }
+  }

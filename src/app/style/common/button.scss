@@ -1,10 +1,71 @@
+@import 'colors';
+
+button:disabled {
+    opacity: 0.3 !important;
+    color: $white !important;
+    &:hover {
+        cursor: default;
+    }
+}
+
 button {
-    width: 100px;
     background: $light-blue;
+    border: none;
+    border-radius: 4px;
     color: $white;
-    border-radius: 7px;
-    height: 30px;
-    border: 0;
-    text-align: center;
-    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    position: relative;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    font-size: 1em;
+    a {
+        text-decoration: none;
+    }
+    &.red {
+        background: $red;
+    }
+    &.hide {
+        display: none;
+    }
+}
+
+.btn {
+    button:enabled {
+        &.red {
+            &:hover {
+                color: $red;
+            }
+            &:after {
+                background: $red;
+            }
+        }
+        cursor: pointer;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        &:hover {
+            -webkit-transition: all .7s ease;
+            transition: all 1s ease;
+            background: transparent;
+            color: $light-blue;
+            border-radius: 0;
+            &:after {
+                transition: all .3s ease;
+                width: 100%;
+                left: 0;
+            }
+        }
+        &:after {
+            position: absolute;
+            transition: all .3s ease;
+            content: '';
+            width: 0;
+            bottom: 0;
+            left: inherit;
+            right: 0;
+            height: 3px;
+            background: $light-blue;
+        }
+    }
 }

@@ -1,12 +1,12 @@
 .grid-item {
-    display: grid;
+    display: flex;
+    flex-flow: column;
     padding: 10px;
     -o-transition:.2s;
     -ms-transition:.2s;
     -moz-transition:.2s;
     -webkit-transition:.2s;
     transition: all 300ms ease-in-out;
-    grid-template-rows: 1fr auto;
     border-radius: 15px;
     text-decoration: none;
 }

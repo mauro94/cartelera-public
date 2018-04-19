@@ -6,7 +6,7 @@ import EventList from 'Containers/events/List'
 const AllEvents = () => (
     <div className='page-container'>
         <h1>Todos los eventos</h1>
-        <EventList upcoming={false} />
+        <EventList />
     </div>
 )
 

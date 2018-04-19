@@ -1,6 +1,6 @@
 export const EventActions = Object.freeze({
     All: 'ALL',
-    Current: 'CURRENT'
+    Show: 'SHOW'
 })
 
 export const Status = Object.freeze({
@@ -9,3 +9,13 @@ export const Status = Object.freeze({
     Ready: 'READY',
     Failed: 'FAILED'
 })
+
+export const Labels = {
+    description: 'Qué haremos',
+    majors: 'Carreras invitadas',
+    requirementsToRegister: 'Requisitos',
+    schedule: 'Horario',
+    share: 'Comparte',
+    tags: 'Temas relacionados',
+    contact: 'Ponte en contacto'
+}

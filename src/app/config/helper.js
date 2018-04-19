@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 export function isEmpty(object) {
-    return !object || (Object.keys(object).length === 0) || object == null
+    return !object || (Object.keys(object).length === 0) || object == null || (Array.isArray(object) && object.length == 0)
 }
 
 export const request = axios.create({
@@ -13,13 +13,111 @@ export const request = axios.create({
     }
 })
 
+export const weatherRequest = axios.create({
+    baseURL: 'https://api.darksky.net/forecast/'
+})
+
+export const weatherKey = '3b7cb06c11f0f1d8263e7de2760d0642'
+
 const month = ["enero", "febrero", "marzo", "abril", "mayo",
     "junio", "julio", "agosto", "septiembre", "octubre",
     "noviembre", "diciembre"]
 
+export const daysToDeadline = (deadline) => {
+    let end = new Date(deadline)
+    let now = new Date()
+    let distance = end - now
+
+    let _second = 1000
+    let _minute = _second * 60
+    let _hour = _minute * 60
+    let _day = _hour * 24
+    let days = Math.floor(distance / _day)
+    if (distance < 0) {
+        return -1
+    }
+    return days
+}
+
+export const formatTimeToRegister = (deadline) => {
+    let days = daysToDeadline(deadline)
+    if (days < 0) {
+        return 'El registro ya se cerró'
+    }
+    if (days == 0) {
+        return `Hoy se cierra el registro`
+    }
+    if (days == 1) {
+        return `En un día se cierra el registro`
+    }
+    if (days > 1 && days < 7) {
+        return `En ${days} días se cierra el registro`
+    }
+    if (days == 7) {
+        return `En una semana se cierra el registro`
+    }
+    return `El registro se cierra el ${formatDate(deadline)}`
+}
+
+export const formatArray = (arr) => {
+    let outStr = '';
+    if (arr.length === 1) {
+        outStr = arr[0]
+    } else if (arr.length === 2) {
+        let joiner = arr[1][0].toLowerCase() == 'i' ?
+            ' e ' : ' y '
+        outStr = arr.join(joiner)
+    } else if (arr.length > 2) {
+        let firstWords = arr.splice(0, arr.length - 1)
+        let lastWord = arr[0][0].toLowerCase() == 'i' ?
+            `e ${arr[0]}` : `y ${arr[0]}`
+        outStr = `${firstWords.join(', ')} ${lastWord}`
+    }
+    return outStr;
+}
+
 export const formatDate = (eventDate) => {
     let d = new Date(eventDate)
-    return d.getDate() + " de " + month[d.getMonth()]
+    return `${d.getDate()} de ${month[d.getMonth()]} `
+}
+
+export const eventDates = (start, end) => {
+    if (!end) {
+        return formatDate(start)
+    }
+    let startDate = new Date(start)
+    let endDate = new Date(end)
+    if (startDate.getMonth() == endDate.getMonth()) {
+        if (startDate.getDate() == endDate.getDate()) {
+            return formatDate(start)
+        }
+        else {
+            return `${startDate.getDate()} - ${formatDate(end)} `
+        }
+    }
+    return `${formatDate(startDate)} - ${formatDate(endDate)} `
+}
+
+const formatTime = (date) => {
+    let d = new Date(date)
+    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+export const eventTime = (start, end) => {
+    if (!end) {
+        return formatTime(start)
+    }
+    let startDate = new Date(start)
+    let endDate = new Date(end)
+    if (startDate.getMonth() == endDate.getMonth()) {
+        if (startDate.getDate() == endDate.getDate()) {
+            return `${formatTime(start)} - ${formatTime(end)} `
+        }
+        else {
+            return formatTime(start)
+        }
+    }
+    return 'idk man'
 }
 
 export const randomInt = (from, to) => {

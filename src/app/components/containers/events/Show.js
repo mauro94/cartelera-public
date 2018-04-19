@@ -6,24 +6,10 @@ import { Status, EventActions } from 'Config/constants'
 import { isEmpty } from 'Config/helper'
 import ShowEvent from 'Presentational/events/Show'
 
-var Spinner = require('react-spinkit');
-
-let component = <Spinner name="pulse" />
-
 class Show extends React.Component {
     componentDidMount() {
-        if (!this.props.loading && isEmpty(this.props.event)) {
+        if (isEmpty(this.props.event.show)) {
             this.props.loadEvent(this.props.id)
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.loading && nextProps.ready) {
-            if (isEmpty(nextProps.event))
-                component = <div className='no-events'>
-                    No existe el evento en la base de datos</div>
-            else
-                component = <ShowEvent event={nextProps.event} />
         }
     }
 
@@ -34,7 +20,16 @@ class Show extends React.Component {
     render() {
         return (
             <div className='page-container'>
-                {component}
+                <ShowEvent
+                    event={this.props.event.show}
+                    register={() => console.log()}
+                    hide
+                    reducer={{
+                        status: this.props.event.status,
+                        action: this.props.event.action,
+                        error: this.props.event.error
+                    }}
+                    action={EventActions.Show} />
             </div>
         )
     }
@@ -42,9 +37,7 @@ class Show extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        event: state.event.current,
-        loading: state.event.status == Status.WaitingOnServer,
-        ready: state.event.status == Status.Ready
+        event: state.event
     }
 }
 
@@ -53,7 +46,7 @@ const mapDispatchToProps = dispatch => {
         loadEvent: id => { dispatch(thunks.event.get(id)) },
         cleanEvent: () => {
             dispatch(createAction(
-                EventActions.Current,
+                EventActions.Show,
                 {},
                 null,
                 Status.Ready

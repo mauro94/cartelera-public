@@ -2,40 +2,39 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { thunks } from 'Logic/actions/thunks'
 import EventList from 'Presentational/events/List'
-import { Status } from 'Config/constants'
+import { EventActions, Status } from 'Config/constants'
 import { isEmpty } from 'Config/helper'
 var Spinner = require('react-spinkit');
 
-let component = <Spinner name="pulse" />
+// cuantos eventos? si no hay numero, todo con pagination
 
 class List extends React.Component {
     componentWillMount() {
-        if (!this.props.loading && (isEmpty(this.props.events))) {
+        if (isEmpty(this.props.event.all)) {
             this.props.loadEvents()
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props.loading && nextProps.ready) {
-            if (isEmpty(nextProps.events))
-                component = <div className='no-events'>No hay eventos en la base de datos</div>
-            else
-                component = <EventList {...nextProps} />
-        }
-    }
-
     render() {
-        return <div className={'event-container ' + (this.props.upcoming ? "upcoming" : "all")}>
-            {component}
-        </div>
+        return (
+            <div className={'event-container ' + (this.props.upcoming ? "upcoming" : "all")}>
+                <EventList
+                    events={this.props.event.all}
+                    hide
+                    reducer={{
+                        status: this.props.event.status,
+                        action: this.props.event.action,
+                        error: this.props.event.error
+                    }}
+                    action={EventActions.All} />
+            </div>
+        )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        events: state.event.all,
-        loading: state.event.status == Status.WaitingOnServer,
-        ready: state.event.status == Status.Ready
+        event: state.event
     }
 }
 

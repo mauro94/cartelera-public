@@ -7,7 +7,8 @@ var defaultState = {
     all: [],
     status: Status.Ready,
     error: {},
-    current: {}
+    show: {},
+    action: ''
 }
 
 function event(state = defaultState, action) {
@@ -18,13 +19,15 @@ function event(state = defaultState, action) {
                 all: action.object,
                 status: action.status,
                 error: action.error,
+                action: action.type
             }
-        case EventActions.Current:
+        case EventActions.Show:
             return {
                 ...state,
-                current: action.object,
+                show: action.object,
                 status: action.status,
                 error: action.error,
+                action: action.type
             }
     }
     return state

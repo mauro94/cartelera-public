@@ -1,0 +1,162 @@
+@import '../common/button';
+@import '../common/colors';
+@import '../common/setup';
+@import 'show/photoModal';
+
+.page-container {
+    .show-event {
+      display: flex;
+      padding-top: 60px;
+      flex-flow: row;
+      @include mq($from: mobile, $until: tablet) {
+        flex-flow: column;
+      }
+      .photo-section-container {
+        margin: 0 5%;
+        overflow: scroll;
+        height: 100vh;
+        min-width: 400px;
+        position: sticky;
+        top: 15px;
+        @include mq($from: mobile, $until: desktop) {
+          min-width: 40%;
+        }
+        @include mq($from: desktop) {
+          min-width: 400px;
+        }
+        .photo-section {
+          min-height: 100%;
+          position: sticky;
+          overflow: hidden;
+          top: 15px;
+          .image {
+            border-radius: 0;
+            max-height: 70vh;
+            .overlay {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              opacity: 0;
+              background: rgba(1,1,1,0.3);
+              opacity: 0;
+              .zoom {
+                display:flex;
+                align-items:center;
+                justify-content: center;
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                background-color: $white;
+                padding: 10px;
+                border-radius: 60px;
+                height: 30px;
+                width: 30px;
+                &:hover {
+                    cursor: pointer;
+                }
+              }
+              &:hover {
+                opacity: 1;
+                cursor: zoom-in;
+              }
+            }
+          }
+          .register {
+            align-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 150px;
+            justify-content: space-between;
+            .cost {
+              font-size: 20px;
+              font-weight: 500;
+            }
+            .reminder {
+              width: 100%;
+              text-align: right;
+              font-weight: 200;
+              padding: 20px 0;
+            }
+          }
+        }
+      }
+      .details-section {
+        margin: 0 5%;
+        .title {
+          > div {
+            display: flex;
+            justify-content: space-between;
+          }
+          min-height: 150px;
+          h1 {
+            text-align: left;
+            margin: 0;
+            &.line-through {
+              text-decoration: line-through
+            }
+          }
+          .subtitle {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+            height: 50%;
+          }
+          margin-bottom: 20px;
+        }
+        .iconed-info {
+          font-weight: 200;
+          display: flex;
+          flex-flow: column;
+          justify-content: space-evenly;
+          .iconed-info-item {
+            display: flex;
+            flex-flow: row;
+            height: 50px;
+            svg {
+              margin-right: 20px;
+            }
+          }
+        }
+        .general-info {
+          font-weight: 200;
+          .info-item {
+            margin: 25px 0;
+            max-width: 100%;
+            .label {
+              font-weight: 600;
+              margin: 10px 0;
+            }
+            .children {
+              line-height: 30px;
+              img {
+                max-width: 100%;
+              }
+              .contact .iconed-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                @include mq($until: desktop) {
+                  flex-direction: column;
+                }
+                .iconed-info-item {
+                  width: 50%;
+                  @include mq($until: desktop) {
+                    width: 100%;
+                  }
+                }
+              }
+              .social-media {
+                width: 100%;
+                .SocialMediaShareButton:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
