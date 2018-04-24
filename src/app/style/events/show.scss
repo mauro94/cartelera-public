@@ -16,6 +16,10 @@
         overflow: scroll;
         height: 100vh;
         min-width: 400px;
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
         position: sticky;
         top: 15px;
         @include mq($from: mobile, $until: desktop) {
@@ -32,6 +36,7 @@
           .image {
             border-radius: 0;
             max-height: 70vh;
+            margin-top: 15px;
             .overlay {
               position: absolute;
               top: 0;
@@ -83,6 +88,7 @@
         }
       }
       .details-section {
+        min-width: 40%;
         margin: 0 5%;
         .title {
           > div {
@@ -135,14 +141,13 @@
               }
               .contact .iconed-info {
                 display: flex;
-                flex-direction: row;
                 justify-content: flex-start;
-                flex-wrap: wrap;
+                flex-flow: wrap;
                 @include mq($until: desktop) {
                   flex-direction: column;
                 }
                 .iconed-info-item {
-                  width: 50%;
+                  min-width: 50%;
                   @include mq($until: desktop) {
                     width: 100%;
                   }

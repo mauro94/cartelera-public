@@ -1,11 +1,12 @@
 export const EventActions = Object.freeze({
     All: 'ALL',
-    Show: 'SHOW'
+    Show: 'SHOW',
+    Register: 'REGISTER'
 })
 
 export const Status = Object.freeze({
-    WaitingOnServer: 'WAITING_ON_SERVER',
     WaitingOnUser: 'WAITING_ON_USER',
+    WaitingOnServer: 'WAITING_ON_SERVER',
     Ready: 'READY',
     Failed: 'FAILED'
 })

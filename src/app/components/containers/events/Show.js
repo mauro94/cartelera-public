@@ -22,7 +22,6 @@ class Show extends React.Component {
             <div className='page-container'>
                 <ShowEvent
                     event={this.props.event.show}
-                    register={(val) => console.log(val)}
                     hide
                     reducer={{
                         status: this.props.event.status,

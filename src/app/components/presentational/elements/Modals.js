@@ -18,12 +18,12 @@ export const ModalConfirmation = (props) => (
         {props.confirmationMsg && <div className='text'>{props.confirmationMsg}</div>}
         {props.children}
         <div className='modal-confirmation-buttons'>
-            <Button
+            {props.confirmButton ? props.confirmButton : <Button
                 handleClick={() => {
                     props.handleConfirm()
                 }}>
                 {props.confirmButtonName || 'Continuar'}
-            </Button>
+            </Button>}
             <div><Button
                 color='grey'
                 handleClick={() => {

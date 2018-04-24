@@ -1,12 +1,27 @@
 import React from 'react'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faSearchPlus, faTimes } from '@fortawesome/fontawesome-free-solid'
-import RegistrationSection from './Registration'
-import { ModalAlert, ModalFeedback } from 'Presentational/elements'
+import { faSearchPlus } from '@fortawesome/fontawesome-free-solid'
+import RegistrationSection from 'Containers/events/Register'
+import { CancelledEventModal, PhotoModal } from './modals/index'
+import { Button, ModalAlert } from 'Presentational/elements'
+import { isEmpty } from 'Config/helper'
 
-const PhotoSection = ({ event, register, error }) => (
+const PhotoSection = ({ event, register, error, ...props }) => (
     <div className='photo-section-container'>
         <div className='photo-section'>
+            {
+                event.cancelled &&
+                <Button
+                    color='red'
+                    right
+                    handleClick={() => ModalAlert({
+                        modal: CancelledEventModal,
+                        event: event
+                    })}
+                    disabled={isEmpty(event.cancelMessage)}>
+                    {'CANCELADO'}
+                </Button>
+            }
             <div className='image' onClick={() => {
                 ModalAlert({
                     modal: PhotoModal,
@@ -20,30 +35,8 @@ const PhotoSection = ({ event, register, error }) => (
                     </div>
                 </div>
             </div>
-            <RegistrationSection
-                event={event}
-                register={register}
-                error={error} />
+            <RegistrationSection />
         </div>
-    </div>
-)
-
-const PhotoModal = (props) => (
-    <div className='photo-modal'>
-        <ModalFeedback
-            noButton
-            handleOk={() => {
-                props.onClose()
-            }}>
-            <div className='enlarged-image'>
-                <div className='close' onClick={() => props.onClose()}>
-                    <FontAwesomeIcon icon={faTimes} size="lg" />
-                </div>
-                <div className='image'>
-                    <img src={props.event.photo} />
-                </div>
-            </div>
-        </ModalFeedback>
     </div>
 )
 

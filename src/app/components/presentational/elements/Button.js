@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = (props) => {
     return (
-        <div className='btn'>
+        <div className={'btn' + (props.right ? ' right' : '')}>
             <button
                 className={(props.color ? props.color : '')
                     + (props.hide ? ' hide' : '')}

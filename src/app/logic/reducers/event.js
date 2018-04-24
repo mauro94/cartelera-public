@@ -11,6 +11,16 @@ var defaultState = {
     action: ''
 }
 
+const getError = (action) => {
+    if (action.error) {
+        if (action.error.error) {
+            return action.error.error
+        }
+        return action.error
+    }
+    return null
+}
+
 function event(state = defaultState, action) {
     switch (action.type) {
         case EventActions.All:
@@ -18,7 +28,7 @@ function event(state = defaultState, action) {
                 ...state,
                 all: action.object,
                 status: action.status,
-                error: action.error,
+                error: getError(action),
                 action: action.type
             }
         case EventActions.Show:
@@ -26,11 +36,16 @@ function event(state = defaultState, action) {
                 ...state,
                 show: action.object,
                 status: action.status,
-                error: action.error,
+                error: getError(action),
                 action: action.type
             }
     }
-    return state
+    return {
+        ...state,
+        status: action.status,
+        action: action.type,
+        error: getError(action)
+    }
 }
 
 export default event

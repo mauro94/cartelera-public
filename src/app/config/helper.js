@@ -117,7 +117,7 @@ export const eventTime = (start, end) => {
             return formatTime(start)
         }
     }
-    return 'idk man'
+    return formatTime(start)
 }
 
 export const randomInt = (from, to) => {

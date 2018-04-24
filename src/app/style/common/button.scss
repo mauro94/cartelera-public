@@ -26,12 +26,19 @@ button {
     &.red {
         background: $red;
     }
+    &.grey {
+        color: $light-grey;
+        background: transparent;
+    }
     &.hide {
         display: none;
     }
 }
 
 .btn {
+    &.right {
+        text-align: right;
+    }
     button:enabled {
         &.red {
             &:hover {
@@ -39,6 +46,15 @@ button {
             }
             &:after {
                 background: $red;
+            }
+        }
+        &.grey {
+            &:hover {
+                color: $light-grey;
+                background: transparent;
+            }
+            &:after {
+                background: $light-grey;
             }
         }
         cursor: pointer;

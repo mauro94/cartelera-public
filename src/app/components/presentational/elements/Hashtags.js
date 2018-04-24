@@ -6,8 +6,8 @@ const Hashtags = ({ hashtag, index }) => {
     return (
         <React.Fragment>
             {hashtag.map(h =>
-                <Link to='/' key={"h-" + index + "-" + h.id}>
-                    {"#" + h.name}
+                <Link to='/' key={"h-" + index + "-" + h}>
+                    {"#" + h}
                 </Link>
             )}
         </React.Fragment>

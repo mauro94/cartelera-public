@@ -43,3 +43,21 @@ export const get = (id) => {
             })
     }
 }
+
+export const register = (email, eventId) => {
+    return (dispatch) => {
+        dispatch(createAction(EventActions.Register, null,
+            null, Status.WaitingOnServer))
+        request.post('/registrees', { 'user_email': email, 'event_id': eventId })
+            .then(response => {
+                dispatch(
+                    createAction(EventActions.Register, response.data, null,
+                        Status.Ready))
+            })
+            .catch(error => {
+                dispatch(
+                    createAction(EventActions.Register, null, error.response.data,
+                        Status.Failed))
+            })
+    }
+}

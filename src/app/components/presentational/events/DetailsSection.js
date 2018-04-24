@@ -9,10 +9,8 @@ import {
     IconedInfoItem,
     IconInfoCollection,
     InfoItem,
-    Share,
-    ModalAlert
+    Share
 } from 'Presentational/elements'
-import CancelledEventModal from './CancelMessage'
 
 const DetailsSection = ({ event }) => {
     return (
@@ -29,18 +27,6 @@ const ShowEventTitle = ({ event }) => (
             <h1 className={event.cancelled ? 'line-through' : ''}>
                 {event.name}
             </h1>
-            <Button
-                hide={!event.cancelled}
-                color='red'
-                handleClick={() => {
-                    ModalAlert({
-                        modal: CancelledEventModal,
-                        event: event
-                    })
-                }}
-                disabled={isEmpty(event.cancelMessage)}>
-                CANCELADO
-            </Button>
         </div>
         <div className='subtitle'>
             <div className='category'>
