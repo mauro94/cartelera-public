@@ -64,6 +64,9 @@ export const formatCountToRegister = (hasRegistration, registeredCount, capacity
         let count = capacity - registeredCount
         let percent = ((registeredCount/capacity)*100).toFixed(0)
 
+        if (count <= 0){
+            return ''
+        }
         if (count <= 15) {
             return `Quedan solo ${count} lugares, regístrate pronto`
         }

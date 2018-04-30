@@ -25,7 +25,7 @@ const RegistrationSection = ({ event, error, register }) => (
                 'Regístrate' : 'Más información'}
         </Button>
         <div className='reminder'>
-            {event.cancelled ?
+            {(event.cancelled || ((event.registeredCount >= event.maxCapacity) && event.maxCapacity != 0))?
                 'El registro está cerrado' : 
                 formatTimeToRegister(event.registrationDeadline)}
             <small>
