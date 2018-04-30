@@ -60,6 +60,35 @@ export const formatTimeToRegister = (deadline) => {
     return `El registro se cierra el ${formatDate(deadline)}`
 }
 
+export const formatCountToRegister = (hasRegistration, registeredCount, capacity) => {
+    if(hasRegistration && capacity > 0){
+        let count = capacity - registeredCount
+        let percent = ((registeredCount/capacity)*100).toFixed(0)
+
+        if (count <= 0){
+            return ''
+        }
+        if (count <= 15) {
+            if (count == 1){
+                return `Queda solo ${count} lugar, regístrate pronto`
+            }
+            else{
+                return `Quedan solo ${count} lugares, regístrate pronto`
+            }
+        }
+        else {
+            if (percent >= 30) {
+                return `El registro está ${percent}% lleno`
+            }
+            else {
+                return ''
+            }
+        }
+    }
+
+    return ''
+}
+
 export const formatArray = (arr) => {
     let outStr = '';
     if (arr.length === 1) {
