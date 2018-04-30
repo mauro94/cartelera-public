@@ -68,7 +68,12 @@ export const formatCountToRegister = (hasRegistration, registeredCount, capacity
             return ''
         }
         if (count <= 15) {
-            return `Quedan solo ${count} lugares, regístrate pronto`
+            if (count == 1){
+                return `Queda solo ${count} lugar, regístrate pronto`
+            }
+            else{
+                return `Quedan solo ${count} lugares, regístrate pronto`
+            }
         }
         else {
             if (percent >= 30) {
