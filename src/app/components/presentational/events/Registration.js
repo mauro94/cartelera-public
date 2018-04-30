@@ -10,6 +10,21 @@ const RegistrationSection = ({ event, error, register }) => (
             {!event.cost || event.cost == 0 ?
                 'Sin costo' : `\$${event.cost} MXN`}
         </div>
+        {event.hasRegistration && <RegisterButton event={event} error={error} register={register} />}
+        {event.registrationUrl && <MoreInfoButton event={event} />}
+    </div>
+)
+
+const MoreInfoButton = ({ event }) => (
+    <Link to={event.registrationUrl}>
+        <Button>
+            Más información
+        </Button>
+    </Link>
+)
+
+const RegisterButton = ({ event, error, register }) => (
+    <React.Fragment>
         <Button
             disabled={event.cancelled ||
                 daysToDeadline(event.registrationDeadline) < 0}
@@ -21,15 +36,19 @@ const RegistrationSection = ({ event, error, register }) => (
                     event: event
                 })
             }}>
-            {event.hasRegistration ?
-                'Regístrate' : 'Más información'}
+            {'Regístrate'}
         </Button>
         <div className='reminder'>
-            {event.cancelled ?
-                'El registro está cerrado' :
-                formatTimeToRegister(event.registrationDeadline)}
+            {registerButtonSubtitle(event)}
         </div>
-    </div>
+    </React.Fragment>
 )
+
+const registerButtonSubtitle = (event) => {
+    if (event.cancelled) {
+        return 'El registro está cerrado'
+    }
+    return formatTimeToRegister(event.registrationDeadline)
+}
 
 export default withFeedback(RegistrationSection)

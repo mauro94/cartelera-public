@@ -39,8 +39,8 @@ const EventListItem = ({ event, index }) => {
                 <div className="event-grid-title">{event.name}</div>
                 <div className="event-grid-date">{eventDates(event.startDatetime, event.endDatetime)}</div>
                 <div className="event-grid-hashtags">
-                    {event.tags &&
-                        <Hashtags hashtag={event.tags} index={index} />}
+                    {event.tagNames &&
+                        <Hashtags hashtag={event.tagNames} index={index} />}
                 </div>
             </div>
         </Link>

@@ -17,22 +17,25 @@ class Registration extends React.Component {
         this.onSuccess = this.onSuccess.bind(this)
         this.onError = this.onError.bind(this)
     }
-    handleRegister(email) {
-        this.props.register(email, this.props.event.show.id)
+    handleRegister(email, fullName) {
+        this.props.register(email, fullName, this.props.event.show.id)
         this.setState({
-            email: email
+            email: email,
+            fullName: fullName
         })
     }
     onSuccess() {
         ModalAlert({
             modal: RegistrationSuccessfulModal,
-            email: this.state.email
+            email: this.state.email,
+            fullName: this.state.fullName
         })
     }
     onError() {
         ModalAlert({
             modal: RegistrationErrorModal,
             email: this.state.email,
+            fullName: this.state.fullName,
             errorMsg: this.props.event.error
         })
     }
@@ -49,7 +52,7 @@ class Registration extends React.Component {
                         action: this.props.event.action,
                         error: this.props.event.error
                     }}
-                    register={(email) => this.handleRegister(email)} />
+                    register={(email, fullName) => this.handleRegister(email, fullName)} />
             </React.Fragment>
         )
     }
@@ -63,8 +66,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        register: (email, id) => {
-            dispatch(thunks.event.register(email, id))
+        register: (email, fullName, id) => {
+            dispatch(thunks.event.register(email, fullName, id))
         }
     }
 }
