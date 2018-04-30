@@ -11,17 +11,19 @@ const RegistrationSection = ({ event, error, register }) => (
                 'Sin costo' : `\$${event.cost} MXN`}
         </div>
         {event.hasRegistration && <RegisterButton event={event} error={error} register={register} />}
-        {event.registrationUrl && <MoreInfoButton event={event} />}
+        {!event.hasRegistration && event.registrationUrl && <MoreInfoButton event={event} />}
         <Reminder event={event}/>
     </div>
 )
 
 const MoreInfoButton = ({ event }) => (
-    <a target="_blank" href={event.registrationUrl}>
-        <Button>
-            Más información
-        </Button>
-    </a>
+    <React.Fragment>
+        <a target="_blank" href={event.registrationUrl}>
+            <Button>
+                Más información
+            </Button>
+        </a>
+    </React.Fragment>
 )
 
 const RegisterButton = ({ event, error, register }) => (
