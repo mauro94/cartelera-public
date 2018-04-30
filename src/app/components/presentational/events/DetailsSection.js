@@ -62,7 +62,7 @@ const RequirementsSection = ({ item }) => (
 )
 
 const TagsSection = ({ item }) => (
-    <Hashtags hashtag={item.tags} index={1} />
+    <Hashtags hashtag={item.tagNames} index={1} />
 )
 
 const ShareSection = ({ item }) => {

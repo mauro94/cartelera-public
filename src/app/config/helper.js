@@ -9,7 +9,8 @@ export function isEmpty(object) {
 export const request = axios.create({
     baseURL: 'https://cartelera-api.herokuapp.com/',
     headers: {
-        'Accept': 'application/vnd.cartelera-api.v1'
+        'Accept': 'application/vnd.cartelera-api.v1',
+        'Content-Type': 'application/json'
     }
 })
 

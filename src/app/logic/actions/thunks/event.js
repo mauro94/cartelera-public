@@ -44,11 +44,16 @@ export const get = (id) => {
     }
 }
 
-export const register = (email, eventId) => {
+export const register = (email, fullName, eventId) => {
+    let registree = {
+        email: email,
+        'full_name': fullName,
+        'event_id': eventId
+    }
     return (dispatch) => {
         dispatch(createAction(EventActions.Register, null,
             null, Status.WaitingOnServer))
-        request.post('/registrees', { 'user_email': email, 'event_id': eventId })
+        request.post('/registrees', registree)
             .then(response => {
                 dispatch(
                     createAction(EventActions.Register, response.data, null,
