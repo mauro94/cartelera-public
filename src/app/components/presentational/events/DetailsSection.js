@@ -12,14 +12,12 @@ import {
     Share
 } from 'Presentational/elements'
 
-const DetailsSection = ({ event }) => {
-    return (
-        <div className='details-section'>
-            <ShowEventTitle event={event} />
-            <GeneralInfo event={event} />
-        </div>
-    )
-}
+const DetailsSection = ({ event }) => (
+    <div className='details-section'>
+        <ShowEventTitle event={event} />
+        <GeneralInfo event={event} />
+    </div>
+)
 
 const ShowEventTitle = ({ event }) => (
     <div className='title'>

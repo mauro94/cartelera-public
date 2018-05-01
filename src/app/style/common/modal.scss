@@ -2,32 +2,34 @@
 @import 'setup';
 @import 'inputs';
 
-.modal__content {
-    .modal-confirmation {
+.modal-confirmation {
+    height: auto;
+    text-align: center;
+    min-width: 350px;
+
+    h1 {
+        margin: 20px 0;
+    }
+    &.error {
         h1 {
-            margin: 20px 0;
+            color: $red;
         }
-        &.error {
-            h1 {
-                color: $red;
-            }
-        }
-        .text {
-            min-height: 50px;
-            min-width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-confirmation-buttons {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: space-evenly;
-            min-height: 150px;
-        }
-        input {
-            text-align: center;
-        }
+    }
+    .text {
+        min-height: 50px;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-confirmation-buttons {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-evenly;
+        min-height: 150px;
+    }
+    input {
+        text-align: center;
     }
 }

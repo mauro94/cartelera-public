@@ -12,7 +12,7 @@ const RegistrationSection = ({ event, error, register }) => (
         </div>
         {event.hasRegistration && <RegisterButton event={event} error={error} register={register} />}
         {!event.hasRegistration && event.registrationUrl && <MoreInfoButton event={event} />}
-        <Reminder event={event}/>
+        <Reminder event={event} />
     </div>
 )
 
@@ -29,7 +29,7 @@ const MoreInfoButton = ({ event }) => (
 const RegisterButton = ({ event, error, register }) => (
     <React.Fragment>
         <Button
-            disabled={event.cancelled || ((event.registeredCount >= event.maxCapacity) && event.maxCapacity != 0)||
+            disabled={event.cancelled || ((event.registeredCount >= event.maxCapacity) && event.maxCapacity != 0) ||
                 daysToDeadline(event.registrationDeadline) < 0}
             handleClick={() => {
                 ModalAlert({
@@ -38,7 +38,7 @@ const RegisterButton = ({ event, error, register }) => (
                     error: error,
                     event: event
                 })
-            }}> 
+            }}>
             {event.hasRegistration ?
                 'Regístrate' : 'Más información'}
         </Button>
@@ -48,7 +48,7 @@ const RegisterButton = ({ event, error, register }) => (
 const Reminder = ({ event }) => (
     <React.Fragment>
         <div className='reminder'>
-                {registerButtonSubtitle(event)}
+            {registerButtonSubtitle(event)}
             <small>
                 {formatCountToRegister(event.hasRegistration, event.registeredCount, event.maxCapacity)}
             </small>
@@ -57,7 +57,7 @@ const Reminder = ({ event }) => (
 )
 
 const registerButtonSubtitle = (event) => {
-    if(!event.hasDeadline){
+    if (!event.hasDeadline) {
         return ''
     }
 
