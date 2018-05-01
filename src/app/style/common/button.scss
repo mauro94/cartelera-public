@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'setup';
 
 button:disabled {
     opacity: 0.3 !important;
@@ -42,7 +43,7 @@ button {
     }
     button:enabled {
         &.red {
-            &:hover:not(:focus) {
+            &:hover {
                 color: $red;
             }
             &:after {
@@ -58,28 +59,26 @@ button {
                 background: $light-grey;
             }
         }
-        :not(:focus) {
-            -webkit-transition: all 1s ease;
-            transition: all 1s ease;
-        }
-        &:hover:not(:focus) {
-            cursor: pointer;
-            -webkit-transition: all .7s ease;
-            transition: all 1s ease;
-            background: transparent;
-            color: $light-blue;
-            border-radius: 0;
-            &:after {
-                transition: all .3s ease;
-                width: 100%;
-                left: 0;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        @include mq($from: desktop) {
+            &:hover {
+                cursor: pointer;
+                -webkit-transition: all .7s ease;
+                transition: all 1s ease;
+                background: transparent;
+                color: $light-blue;
+                border-radius: 0;
+                &:after {
+                    transition: all .3s ease;
+                    width: 100%;
+                    left: 0;
+                }
             }
         }
         &:after {
             position: absolute;
-            :not(:focus) {
-                transition: all .3s ease;
-            }
+            transition: all .3s ease;
             content: '';
             width: 0;
             bottom: 0;
