@@ -12,14 +12,12 @@ import {
     Share
 } from 'Presentational/elements'
 
-const DetailsSection = ({ event }) => {
-    return (
-        <div className='details-section'>
-            <ShowEventTitle event={event} />
-            <GeneralInfo event={event} />
-        </div>
-    )
-}
+const DetailsSection = ({ event }) => (
+    <div className='details-section'>
+        <ShowEventTitle event={event} />
+        <GeneralInfo event={event} />
+    </div>
+)
 
 const ShowEventTitle = ({ event }) => (
     <div className='title'>
@@ -62,7 +60,7 @@ const RequirementsSection = ({ item }) => (
 )
 
 const TagsSection = ({ item }) => (
-    <Hashtags hashtag={item.tags} index={1} />
+    <Hashtags hashtag={item.tagNames} index={1} />
 )
 
 const ShareSection = ({ item }) => {
@@ -96,11 +94,11 @@ const GeneralIconedInfo = ({ event }) => (
             item={event}
             keys={['startDatetime', 'endDatetime']}
             text={eventDates(event.startDatetime, event.endDatetime)} />
-        <IconedInfoItem
+        {<IconedInfoItem
             time
             item={event}
             keys={['startDatetime', 'endDatetime']}
-            text={eventTime(event.startDatetime, event.endDatetime)} />
+            text={eventTime(event.startDatetime, event.endDatetime)} />}
         <IconedInfoItem
             array
             item={event}

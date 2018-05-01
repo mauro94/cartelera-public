@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { eventDates, randomInt } from 'Config/helper'
+import { eventDates, eventTime, randomInt } from 'Config/helper'
 import { Hashtags } from 'Presentational/elements'
 import load from 'Containers/Load'
 
@@ -38,9 +38,10 @@ const EventListItem = ({ event, index }) => {
             <div className="text">
                 <div className="event-grid-title">{event.name}</div>
                 <div className="event-grid-date">{eventDates(event.startDatetime, event.endDatetime)}</div>
+                <div className="event-grid-time">{eventTime(event.startDatetime, event.endDatetime)}</div>
                 <div className="event-grid-hashtags">
-                    {event.tags &&
-                        <Hashtags hashtag={event.tags} index={index} />}
+                    {event.tagNames &&
+                        <Hashtags hashtag={event.tagNames} index={index} />}
                 </div>
             </div>
         </Link>

@@ -73,7 +73,9 @@
             display: flex;
             flex-wrap: wrap;
             min-height: 150px;
+            margin: 5px 0;
             justify-content: space-between;
+
             .cost {
               font-size: 20px;
               font-weight: 500;

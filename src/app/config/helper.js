@@ -9,7 +9,8 @@ export function isEmpty(object) {
 export const request = axios.create({
     baseURL: 'https://cartelera-api.herokuapp.com/',
     headers: {
-        'Accept': 'application/vnd.cartelera-api.v1'
+        'Accept': 'application/vnd.cartelera-api.v1',
+        'Content-Type': 'application/json'
     }
 })
 
@@ -60,18 +61,18 @@ export const formatTimeToRegister = (deadline) => {
 }
 
 export const formatCountToRegister = (hasRegistration, registeredCount, capacity) => {
-    if(hasRegistration && capacity > 0){
+    if (hasRegistration && capacity > 0) {
         let count = capacity - registeredCount
-        let percent = ((registeredCount/capacity)*100).toFixed(0)
+        let percent = ((registeredCount / capacity) * 100).toFixed(0)
 
-        if (count <= 0){
+        if (count <= 0) {
             return ''
         }
         if (count <= 15) {
-            if (count == 1){
+            if (count == 1) {
                 return `Queda solo ${count} lugar, regístrate pronto`
             }
-            else{
+            else {
                 return `Quedan solo ${count} lugares, regístrate pronto`
             }
         }
@@ -138,13 +139,14 @@ export const eventTime = (start, end) => {
     }
     let startDate = new Date(start)
     let endDate = new Date(end)
+    if (endDate - startDate <= 0) {
+        return formatTime(start)
+    }
     if (startDate.getMonth() == endDate.getMonth()) {
         if (startDate.getDate() == endDate.getDate()) {
             return `${formatTime(start)} - ${formatTime(end)} `
         }
-        else {
-            return formatTime(start)
-        }
+        return formatTime(start)
     }
     return formatTime(start)
 }
