@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import settings from 'webpack-env-loader!../../../settings.js'
 
 export function isEmpty(object) {
     return !object || (Object.keys(object).length === 0) || object == null || (Array.isArray(object) && object.length == 0)
@@ -17,8 +18,7 @@ export const request = axios.create({
 export const weatherRequest = axios.create({
     baseURL: 'https://api.darksky.net/forecast/'
 })
-
-export const weatherKey = '3b7cb06c11f0f1d8263e7de2760d0642'
+export const weatherKey = settings.darksky_api_key
 
 const month = ["enero", "febrero", "marzo", "abril", "mayo",
     "junio", "julio", "agosto", "septiembre", "octubre",

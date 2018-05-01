@@ -7,7 +7,7 @@
   "main": "/src/public/bundle.js",
   "scripts": {
     "build": "node_modules/.bin/webpack",
-    "start": "npm run build && node_modules/.bin/webpack-dev-server",
+    "start": "npm run build && node_modules/.bin/webpack-dev-server --env.build development",
     "clean": "node_modules/.bin/rimraf src/public",
     "clean:all": "node_modules/.bin/rimraf src/public node_modules"
   },
@@ -25,7 +25,8 @@
     "source-map-loader": "^0.2.3",
     "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "webpack-env-loader": "^0.1.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
@@ -50,6 +51,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sass-mq": "^4.0.2",
-    "style-loader": "^0.20.2"
+    "style-loader": "^0.20.2",
+    "surge": "^0.20.1"
   }
 }
