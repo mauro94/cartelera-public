@@ -19,7 +19,9 @@ module.exports = {
     devServer: {
         contentBase: './src/public',
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        host: '0.0.0.0',
+        disableHostCheck: true
     },
 
     resolve: {

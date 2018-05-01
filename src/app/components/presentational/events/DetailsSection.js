@@ -96,11 +96,11 @@ const GeneralIconedInfo = ({ event }) => (
             item={event}
             keys={['startDatetime', 'endDatetime']}
             text={eventDates(event.startDatetime, event.endDatetime)} />
-        <IconedInfoItem
+        {<IconedInfoItem
             time
             item={event}
             keys={['startDatetime', 'endDatetime']}
-            text={eventTime(event.startDatetime, event.endDatetime)} />
+            text={eventTime(event.startDatetime, event.endDatetime)} />}
         <IconedInfoItem
             array
             item={event}
