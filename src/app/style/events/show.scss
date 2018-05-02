@@ -80,6 +80,18 @@
               font-size: 20px;
               font-weight: 500;
             }
+            .social-media {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+
+              .SocialMediaShareButton {
+                padding: 0px 10px;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
             .reminder {
               width: 100%;
               text-align: right;
@@ -162,12 +174,6 @@
                   @include mq($until: desktop) {
                     width: 100%;
                   }
-                }
-              }
-              .social-media {
-                width: 100%;
-                .SocialMediaShareButton:hover {
-                  cursor: pointer;
                 }
               }
             }

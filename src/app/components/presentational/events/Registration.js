@@ -1,8 +1,9 @@
 import React from 'react'
-import { daysToDeadline, formatTimeToRegister, formatCountToRegister } from 'Config/helper'
+import { daysToDeadline, formatTimeToRegister, formatCountToRegister, pageDomain } from 'Config/helper'
 import withFeedback from 'Containers/Feedback'
 import { Button, ModalAlert, ModalConfirmation, TextField } from 'Presentational/elements'
 import { RegistrationModal } from './modals'
+import Share from 'Presentational/elements/Share';
 
 const RegistrationSection = ({ event, error, register }) => (
     <div className='register'>
@@ -13,6 +14,9 @@ const RegistrationSection = ({ event, error, register }) => (
         {event.hasRegistration && <RegisterButton event={event} error={error} register={register} />}
         {!event.hasRegistration && event.registrationUrl && <MoreInfoButton event={event} />}
         <Reminder event={event} />
+        <Share
+            url={`${pageDomain}/eventos/${event.id}`}
+            message={event.name}/>
     </div>
 )
 
