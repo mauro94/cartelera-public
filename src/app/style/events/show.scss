@@ -142,7 +142,7 @@
           .iconed-info-item {
             display: flex;
             flex-flow: row;
-            height: 50px;
+            min-height: 50px;
             svg {
               margin-right: 20px;
             }
