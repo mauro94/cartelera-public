@@ -1,0 +1,41 @@
+@import 'colors';
+
+.image {
+    border-radius: 0 !important;
+    max-height: 70vh;
+    margin-top: 15px;
+    img {
+      border-radius: 0 !important;
+      overflow: auto;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      background: rgba(1,1,1,0.3);
+      opacity: 0;
+      .zoom {
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: $white;
+        padding: 10px;
+        border-radius: 60px;
+        height: 30px;
+        width: 30px;
+        &:hover {
+            cursor: pointer;
+        }
+      }
+      &:hover {
+        opacity: 1;
+        cursor: zoom-in;
+      }
+    }
+  }

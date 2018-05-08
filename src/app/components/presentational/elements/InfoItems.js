@@ -3,6 +3,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { Labels } from 'Config/constants'
 import { formatArray, isEmpty } from 'Config/helper'
 import { infoIcon } from 'Config/icons'
+import { ZoomableImage } from 'Presentational/elements/ZoomableImage';
 
 export const IconInfoCollection = (props) => (
     <div className='iconed-info'>
@@ -52,7 +53,7 @@ const getChildren = (props) => {
         return <props.component item={props.item} />
     }
     if (props.img) {
-        return <img src={props.item[props.itemKey]} />
+        return <ZoomableImage image={props.item[props.itemKey]} />
     }
     if (props.array) {
         return formatArray(props.item[props.itemKey])

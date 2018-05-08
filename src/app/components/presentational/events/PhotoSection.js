@@ -1,10 +1,9 @@
 import React from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faSearchPlus } from '@fortawesome/fontawesome-free-solid'
 import RegistrationSection from 'Containers/events/Register'
-import { CancelledEventModal, PhotoModal } from './modals/index'
+import { CancelledEventModal } from './modals/index'
 import { Button, ModalAlert } from 'Presentational/elements'
 import { isEmpty } from 'Config/helper'
+import { ZoomableImage } from 'Presentational/elements/ZoomableImage';
 
 const PhotoSection = ({ event, register, error, ...props }) => (
     <div className='photo-section-container'>
@@ -22,19 +21,7 @@ const PhotoSection = ({ event, register, error, ...props }) => (
                     {'CANCELADO'}
                 </Button>
             }
-            <div className='image' onClick={() => {
-                ModalAlert({
-                    modal: PhotoModal,
-                    event: event
-                })
-            }}>
-                <img src={event.photo} />
-                <div className='overlay'>
-                    <div className='zoom'>
-                        <FontAwesomeIcon icon={faSearchPlus} />
-                    </div>
-                </div>
-            </div>
+            <ZoomableImage image={event.photo} />
             <RegistrationSection />
         </div>
     </div>

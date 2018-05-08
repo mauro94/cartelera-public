@@ -15,7 +15,7 @@ const PhotoModal = (props) => (
                     <FontAwesomeIcon icon={faTimes} size="lg" />
                 </div>
                 <div className='image'>
-                    <img src={props.event.photo} />
+                    <img src={props.image} />
                 </div>
             </div>
         </ModalFeedback>
