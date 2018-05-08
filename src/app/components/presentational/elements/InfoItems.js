@@ -20,6 +20,19 @@ export const IconInfoCollection = (props) => (
     </div>
 )
 
+export const InfoItemContact = (props) => {
+    return (
+        <div className='info-item'>
+            <div className='label'>
+                {Labels[props.itemKey]} {props.item.contactName}
+            </div>
+            <div className='children'>
+                {getChildren(props)}
+            </div>
+        </div>
+    )
+}
+
 export const InfoItem = (props) => {
     if (!isEmpty(props.item[props.itemKey])) {
         return (

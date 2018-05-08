@@ -7,6 +7,7 @@ import {
     Button,
     Hashtags,
     IconedInfoItem,
+    InfoItemContact,
     IconInfoCollection,
     InfoItem,
     Share
@@ -45,7 +46,7 @@ const GeneralInfo = ({ event }) => (
             <InfoItem itemKey='description' item={event} />
             <InfoItem itemKey='requirementsToRegister' component={RequirementsSection} item={event} />
             <InfoItem img itemKey='schedule' item={event} />
-            <InfoItem itemKey='contact' dontValidate component={ContactInfo} item={event} />
+            <InfoItemContact itemKey='contact' component={ContactInfo} item={event} />
             <InfoItem itemKey='share' component={ShareSection} item={event} />
             <InfoItem itemKey='tags' component={TagsSection} item={event} />
         </div>
@@ -71,7 +72,6 @@ const ShareSection = ({ item }) => {
 
 const ContactInfo = ({ item }) => (
     <div className='contact'>
-        <div className='contact-name'>{item.contactName}</div>
         <IconInfoCollection
             keys={[
                 'contactEmail',

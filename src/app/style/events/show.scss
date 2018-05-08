@@ -103,11 +103,20 @@
           font-weight: 200;
           display: flex;
           flex-flow: column;
-          justify-content: space-evenly;
           .iconed-info-item {
             display: flex;
             flex-flow: row;
             min-height: 50px;
+            padding: 5px 0;
+
+            .icon{
+              min-width: 45px;
+            }
+
+            .info{
+              word-break: break-word;
+            }
+            
             svg {
               margin-right: 20px;
             }
@@ -127,12 +136,18 @@
               img {
                 max-width: 100%;
               }
-              .contact .iconed-info {
-                display: flex;
-                justify-content: flex-start;
-                flex-flow: wrap;
-                @include mq($until: desktop) {
-                  flex-direction: column;
+              .contact{
+                  .contact-name{
+                    word-break: break-word;
+                  }
+
+                  &.iconed-info{
+                  display: flex;
+                  justify-content: flex-start;
+                  flex-flow: wrap;
+                  @include mq($until: desktop) {
+                    flex-direction: column;
+                  }
                 }
                 .iconed-info-item {
                   min-width: 50%;

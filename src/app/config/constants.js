@@ -18,5 +18,5 @@ export const Labels = {
     schedule: 'Horario',
     share: 'Comparte',
     tags: 'Temas relacionados',
-    contact: 'Ponte en contacto'
+    contact: 'Ponte en contacto con'
 }
