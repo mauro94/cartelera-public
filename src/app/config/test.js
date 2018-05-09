@@ -110,7 +110,5 @@ export var events = [
 ]
 
 export var campus = {
-    'MTY': 'MTY',
-    'QRO': 'QRO',
-    'CDMX': 'CDMX'
+    'MTY': 'MTY'
 }
