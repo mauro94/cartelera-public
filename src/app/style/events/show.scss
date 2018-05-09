@@ -115,8 +115,11 @@
 
             .info{
               word-break: break-word;
+              &.linked{
+                cursor: pointer;
+              }
             }
-            
+
             svg {
               margin-right: 20px;
             }

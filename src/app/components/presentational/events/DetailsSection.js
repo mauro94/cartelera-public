@@ -74,10 +74,10 @@ const ContactInfo = ({ item }) => (
     <div className='contact'>
         <IconInfoCollection
             keys={[
-                'contactEmail',
-                'contactPhone',
-                'facebookUrl',
-                'twitterUrl'
+                {key:'contactEmail', linked: false},
+                {key:'contactPhone', linked: false},
+                {key:'facebookUrl', linked: true},
+                {key:'twitterUrl', linked: true}
             ]}
             item={item} />
     </div>

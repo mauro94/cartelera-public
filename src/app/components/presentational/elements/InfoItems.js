@@ -3,17 +3,20 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { Labels } from 'Config/constants'
 import { formatArray, isEmpty } from 'Config/helper'
 import { infoIcon } from 'Config/icons'
-import { ZoomableImage } from 'Presentational/elements/ZoomableImage';
+import { ZoomableImage } from 'Presentational/elements/ZoomableImage'
+
+[1,2].find
 
 export const IconInfoCollection = (props) => (
     <div className='iconed-info'>
         {
-            props.keys.map((key, index) => (
+            props.keys.map((object, index) => (
                 <React.Fragment key={`icon-${index}`}>
                     <IconedInfoItem
-                        keys={[key]}
+                        linked={object.linked}
+                        keys={[object.key]}
                         item={props.item}
-                        text={props.item[key]} />
+                        text={props.item[object.key]} />
                 </React.Fragment>
             ))
         }
@@ -110,7 +113,17 @@ export const IconedInfoItem = (props) => {
             <div className='icon'>
                 <FontAwesomeIcon icon={icon} />
             </div>
-            <div className='info'>{text}</div>
+            {props.linked ? 
+            <a className='info linked' target="_blank" href={openLinkHelper(text)}>{text}</a> :
+            <div className='info'>{text}</div>}
         </div>
     )
+}
+
+function openLinkHelper (link) {
+    var linkText = link;
+    if (linkText.indexOf("http://") != 0 && linkText.indexOf("https://") != 0) {
+        return ("//" + link)
+    }
+    return link
 }

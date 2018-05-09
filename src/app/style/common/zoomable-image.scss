@@ -1,11 +1,9 @@
 @import 'colors';
 
 .image {
-    border-radius: 0 !important;
     max-height: 70vh;
     margin-top: 15px;
     img {
-      border-radius: 0 !important;
       overflow: auto;
     }
     .overlay {
