@@ -34,12 +34,13 @@ export class Dropdown extends React.Component {
         return (
             <React.Fragment>
                 <div className={
-                    'select' + (this.state.showOptions ? ' focused' : '')
+                    // 'select' + (this.state.showOptions ? ' focused' : '')
+                    'select'
                 }
                     onClick={() => this.toggleOptions()}>
                     <div>{this.state.selected}</div>
                     <div className='down-arrow'>
-                        <DownArrow />
+                        {/* <DownArrow /> */}
                     </div>
                 </div>
                 {this.state.showOptions && <div className='hidden-select'>
