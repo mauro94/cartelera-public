@@ -87,8 +87,8 @@ const GeneralIconedInfo = ({ event }) => (
     <div className='iconed-info'>
         <IconedInfoItem
             item={event}
-            keys={['location', 'campus']}
-            text={`${event.location}, ${event.campus}`} />
+            keys={['location']}
+            text={event.location} />
         <IconedInfoItem
             date
             item={event}
