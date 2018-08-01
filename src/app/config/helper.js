@@ -15,9 +15,6 @@ export const request = axios.create({
     }
 })
 
-export const weatherRequest = axios.create({
-    baseURL: 'https://api.darksky.net/forecast/'
-})
 export const weatherKey = settings.darksky_api_key
 
 const month = ["enero", "febrero", "marzo", "abril", "mayo",

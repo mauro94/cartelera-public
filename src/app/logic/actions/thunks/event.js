@@ -4,7 +4,7 @@ import {
     EventActions,
     Status
 } from 'Config/constants'
-import { request, weatherRequest, weatherKey } from 'Config/helper'
+import { request, weatherKey } from 'Config/helper'
 import { createAction } from 'Logic/actions'
 import { history } from 'Config/router'
 
