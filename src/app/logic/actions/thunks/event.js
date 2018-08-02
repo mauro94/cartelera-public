@@ -1,10 +1,9 @@
 import axios from 'axios'
-import jsonp from 'jsonp'
 import {
     EventActions,
     Status
 } from 'Config/constants'
-import { request, weatherKey } from 'Config/helper'
+import { request } from 'Config/helper'
 import { createAction } from 'Logic/actions'
 import { history } from 'Config/router'
 
@@ -32,24 +31,9 @@ export const get = (id) => {
             null, Status.WaitingOnServer))
         request.get('/events/' + id)
             .then(response => {
-                let time = new Date(response.data.startDatetime)
-                time = time.getTime() / 1000
-                jsonp(`https://api.darksky.net/forecast/${weatherKey}/25.65,-100.29,${time}?exclude=flags,currently,hourly&lang=es`, null, (err, weatherResponse) => {
-                    if (err) {
-                        dispatch(
-                            createAction(EventActions.Show, null, error.message,
-                                Status.Failed))
-                    } else {
-                        let selectedEvent = {
-                            ...response.data,
-                            weatherIcon: weatherResponse.daily.data[0].icon,
-                            weatherSummary: weatherResponse.daily.data[0].summary
-                        }
-                        dispatch(
-                            createAction(EventActions.Show, selectedEvent, null,
-                                Status.Ready))
-                    }
-                })
+                dispatch(
+                    createAction(EventActions.Show, response.data, null,
+                        Status.Ready))
             })
             .catch(error => {
                 dispatch(
