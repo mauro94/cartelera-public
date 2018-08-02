@@ -1,7 +1,6 @@
 import React from 'react'
 import { eventDates, eventTime, pageDomain, pageTitle, isEmpty }
     from 'Config/helper'
-import { weatherIcon } from 'Config/icons'
 import { history } from 'Config/router'
 import {
     Button,
@@ -74,10 +73,10 @@ const ContactInfo = ({ item }) => (
     <div className='contact'>
         <IconInfoCollection
             keys={[
-                {key:'contactEmail', linked: false},
-                {key:'contactPhone', linked: false},
-                {key:'facebookUrl', linked: true},
-                {key:'twitterUrl', linked: true}
+                { key: 'contactEmail', linked: false },
+                { key: 'contactPhone', linked: false },
+                { key: 'facebookUrl', linked: true },
+                { key: 'twitterUrl', linked: true }
             ]}
             item={item} />
     </div>
@@ -94,21 +93,16 @@ const GeneralIconedInfo = ({ event }) => (
             item={event}
             keys={['startDatetime', 'endDatetime']}
             text={eventDates(event.startDatetime, event.endDatetime)} />
-        {<IconedInfoItem
+        <IconedInfoItem
             time
             item={event}
             keys={['startDatetime', 'endDatetime']}
-            text={eventTime(event.startDatetime, event.endDatetime)} />}
+            text={eventTime(event.startDatetime, event.endDatetime)} />
         <IconedInfoItem
             array
             item={event}
             keys={['languages']}
             text={`Ofrecido en array`} />
-        <IconedInfoItem
-            icon={weatherIcon[event.weatherIcon]}
-            item={event}
-            keys={['weatherSummary']}
-            text={event.weatherSummary} />
     </div>
 )
 
