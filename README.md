@@ -1,4 +1,4 @@
-# README Cartelera (public)
+# Cartelera de Innovación y Emprendimiento (public)
 
 This is the webpage for "Cartelera de Innovación" for Tec de Monterrey, will list upcoming events for users, events were previously configured by users with permissions in another webpage.
 
